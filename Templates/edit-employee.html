@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Employee</title>
+</head>
+<body>
+
+    <h1>Edit Employee</h1>
+    <nav>
+        <div class="theme-buttons">
+       <a href="/set-theme/light">Light</a>
+       <a href="/set-theme/dark">dark</a>
+    </div>
+    </nav>
+    <form action="/edit-employee/{{ employee['id'] }}" method="POST">
+
+        <label>Name:</label>
+        <input type="text" name="name" value="{{ employee['name'] }}" required>
+        <br><br>
+        <label>Email:</label>
+        <input type="email" name="email" value="{{ employee['email'] }}" required>
+        <br><br>
+
+        <label>Phone:</label>
+        <input type="tel" name="phone" value="{{ employee['phone'] }}" required>
+        <br><br>
+
+        <label>Department:</label>
+        <input type="text" name="department" value="{{ employee['department'] }}" required>
+        <br><br>
+
+        <label>Salary:</label>
+        <input type="number" name="salary" value="{{ employee['salary'] }}" required>
+        <br><br>
+
+        <label>Joining Date:</label>
+        <input type="date" name="joiningdate" value="{{ employee['joiningdate'] }}" required>
+        <br><br>
+
+        <label>Address:</label>
+        <textarea name="address" required >{{ employee['address'] }}</textarea>
+        <br><br>
+
+        <button type="submit">Update Employee</button>
+
+    </form>
+
+</body>
+</html>

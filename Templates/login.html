@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>loginform</title>
+     <style>
+              * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        #loginform {
+            width: 400px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #222;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #00a6c7;
+            outline: none;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        input[type="submit"] {
+            background-color: #00a6c7;
+            color: white;
+        }
+
+        input[type="reset"] {
+            background-color: #555;
+            color: white;
+            margin-left: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #008ba3;
+        }
+
+        input[type="reset"]:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="loginform" action="/login" method="post">
+
+        <h2>Login Form</h2>
+
+        <label>UserName:</label>
+        <input type="text" name="username" id="username" required>
+
+        <label>Password:</label>
+        <input type="password" name="password" id="password" required>
+
+        <input type="submit" value="Login">
+        <input type="reset" value="Reset">
+
+    </form>
+
+</body>
+
+</html>
+
+      

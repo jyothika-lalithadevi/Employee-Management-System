@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <style>
+    * {
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+     }
+    body 
+    {
+      font-family: Arial, sans-serif;
+       background-color: #f2f2f2;
+    }
+    #container
+   {
+        width: 500px;
+        margin: 50px auto;
+        padding: 25px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px gray;
+    }
+
+    h2 
+    {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    .row 
+    {
+        margin-bottom: 15px;
+    }
+
+    .form-group 
+    {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label 
+    {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input,select,textarea 
+    {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+    }
+
+    textarea 
+    {
+        resize: vertical;
+    }
+
+    .button 
+    {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    button 
+    {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .add-btn 
+    {
+        background-color: green;
+        color: white;
+    }
+
+    .reset-btn
+    {
+        background-color: red;
+        color: white;
+    }
+
+    button:hover 
+    {
+        opacity: 0.8;
+    }
+ </style>
+</head>
+<body>
+  <div id="container">
+    <h2>Add employee</h2>
+    
+    <form action="/add-employee" method="POST">
+        <div class="row">
+        <div class="form-group">
+       <label for="name">EmployeeName:</label>
+       <input type="text" name="name" id="name" 
+        placeholder="enter employeename" >
+        </div>
+        <div class="row">
+        <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email"name="email" id="email"
+         placeholder="enter email" >
+        </div>
+        <div class="row">
+        <div class="form-group">
+        <label for="phone">Phonenumber:</label>
+       <input type="tel" name="phone" id="phone" placeholder="enter Phonenumber" >
+        
+        </div>
+        <div class="row">
+        <div class="form-group">
+       <label for="department">Department:</label>
+       <select name="department" id="department">
+        <option value="" >select department</option>
+        <option value="IT">IT</option>
+        <option value="sales">sales</option>
+        <option value="HR">HR</option>
+        <option value="finance">Finance</option>
+        <option value="manager">Manager</option>
+       </select>
+       </div>
+       <div class="row">
+       <div class="form-group">
+       <label for="salary">Salary:</label>
+       <input type="number" name="salary" id="salary"
+        placeholder="enter salary" >
+        
+        </div>
+        <div class="row">
+       <div class="form-group">
+       <label for="joiningdate">Joiningdate:</label>
+       <input type="date" name="joiningdate" id="joiningdate"
+        placeholder="enter joiningdate" >
+       
+       </div>
+       <div class="row">
+       <div class="form-group">
+       <label for="address">Address:</label>
+       <textarea name="address" id="address" rows="4"
+       placeholder="enter address" ></textarea>
+       
+       </div>
+       <div class="button">
+       <button type="submit" class="add-btn"> Addemployee</button>
+       <button type="reset" class="reset-btn">Reset</button>
+       </div>
+    </form>
+</body>
+</html>

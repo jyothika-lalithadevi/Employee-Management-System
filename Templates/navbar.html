@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #222;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin-left: auto;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+}
+
+.nav-links li a:hover {
+    background-color: #444;
+    border-radius: 5px;
+}
+
+.login-btn {
+    border: 1px solid #00bcd4;
+    border-radius: 5px;
+}
+
+.register-btn {
+    background-color: #00bcd4;
+    border-radius: 5px;
+}
+
+.content {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.content h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.content p {
+    font-size: 18px;
+    color: #555;
+}
+
+
+</style>
+</head>
+<body >
+  <nav class="navbar">
+    <div class="logo">
+      Employee Management System
+    </div>
+   
+    <ul class="nav-links">
+      <li><a href="/home">Home</a></li>
+      <li><a href="/employees">Employees</a></li>
+      <li><a href="/add-employee">AddEmployee</a></li>
+      <li><a href="/search">Search</a></li>
+      <li><a href="/login"class="login-btn">Login</a></li>
+      <li><a href="/register" class="register-btn">Register</a></li>
+    </ul>
+
+  </nav>
+      <div class="content">
+          <h1>Welcome to Employee Management system</h1>
+          <p>manage your employee easily</p>
+      </div>
+</body>
+</html>
