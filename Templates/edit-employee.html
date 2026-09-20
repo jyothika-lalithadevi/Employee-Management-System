@@ -1,47 +1,262 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Edit Employee</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+     * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            padding: 40px 0;
+            transition: 0.3s;
+        }
+
+        /* ================= LIGHT THEME ================= */
+
+        body.light {
+            background-color: #f2f2f2;
+            color: black;
+        }
+
+        /* ================= DARK THEME ================= */
+
+        body.dark {
+            background-color: #222;
+            color: white;
+        }
+
+        /* ================= MAIN CONTAINER ================= */
+
+        #container {
+            width: 500px;
+            margin: auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* DARK MODE CONTAINER */
+
+        body.dark #container {
+            background-color: #333;
+            color: white;
+        }
+
+        /* ================= HEADING ================= */
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 26px;
+        }
+
+        /* ================= THEME BUTTONS ================= */
+
+        .theme-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .theme-buttons a {
+            padding: 8px 14px;
+            text-decoration: none;
+            border: 1px solid #333;
+            border-radius: 5px;
+            color: black;
+            font-size: 14px;
+        }
+
+        body.dark .theme-buttons a {
+            color: white;
+            border-color: white;
+        }
+
+        .theme-buttons a:hover {
+            background-color: #444;
+            color: white;
+        }
+
+        /* ================= FORM ROW ================= */
+
+        .row {
+            margin-bottom: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ================= LABEL ================= */
+
+        label {
+            margin-bottom: 7px;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        /* ================= INPUTS ================= */
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+        }
+
+        /* ================= DARK MODE INPUTS ================= */
+
+        body.dark input,
+        body.dark select,
+        body.dark textarea {
+            background-color: #444;
+            color: white;
+            border: 1px solid #777;
+        }
+
+        body.dark input:focus,
+        body.dark select:focus,
+        body.dark textarea:focus {
+            border-color: #00bcd4;
+        }
+
+        /* ================= TEXTAREA ================= */
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* ================= BUTTON AREA ================= */
+
+        .button {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        /* ================= BUTTON ================= */
+
+        button {
+            flex: 1;
+            padding: 11px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        /* UPDATE BUTTON */
+
+        .update-btn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* RESET BUTTON */
+
+        .reset-btn {
+            background-color: red;
+            color: white;
+        }
+
+        /* BUTTON HOVER */
+
+        button:hover {
+            opacity: 0.85;
+            transform: translateY(-1px);
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 600px) {
+
+            #container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .button {
+                flex-direction: column;
+            }
+        }
+
+
+    </style>
 </head>
-<body>
-
-    <h1>Edit Employee</h1>
-    <nav>
-        <div class="theme-buttons">
-       <a href="/set-theme/light">Light</a>
-       <a href="/set-theme/dark">dark</a>
-    </div>
-    </nav>
+<body class="{{theme}}">
+    <div id="container">
+         <h1>Edit Employee</h1>
+       <nav>
+            <div class="theme-buttons">
+               <a href="/set-theme/light">Light</a>
+                <a href="/set-theme/dark">dark</a>
+            </div>
+       </nav>
+   
     <form action="/edit-employee/{{ employee['id'] }}" method="POST">
-
-        <label>Name:</label>
-        <input type="text" name="name" value="{{ employee['name'] }}" required>
-        <br><br>
+       <div>
+          <label>Name:</label>
+          <input type="text" name="name" value="{{ employee['name'] }}" required>
+       </div>
+       <div>
         <label>Email:</label>
         <input type="email" name="email" value="{{ employee['email'] }}" required>
-        <br><br>
-
+        </div>
+         <div>
         <label>Phone:</label>
         <input type="tel" name="phone" value="{{ employee['phone'] }}" required>
-        <br><br>
-
+        </div>
+         <div>
         <label>Department:</label>
         <input type="text" name="department" value="{{ employee['department'] }}" required>
-        <br><br>
-
+       </div>
+         <div>
         <label>Salary:</label>
         <input type="number" name="salary" value="{{ employee['salary'] }}" required>
-        <br><br>
-
+        </div>
+      <div>
         <label>Joining Date:</label>
         <input type="date" name="joiningdate" value="{{ employee['joiningdate'] }}" required>
-        <br><br>
+       </div>
+       <div>
+            <label>Address:</label>
+            <textarea name="address" required >{{ employee['address'] }}</textarea>
+        </div>
 
-        <label>Address:</label>
-        <textarea name="address" required >{{ employee['address'] }}</textarea>
-        <br><br>
+        <div class="button">
 
-        <button type="submit">Update Employee</button>
+        <button type="submit" class="update-btn">
+            Updateemployee
+        </button>
+
+        <button type="reset" class="reset-btn">
+            Reset
+        </button>
+
+        </div>
 
     </form>
 

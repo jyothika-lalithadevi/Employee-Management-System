@@ -6,97 +6,146 @@
     <title>Document</title>
   <style>
     * {
-       margin: 0;
-       padding: 0;
-       box-sizing: border-box;
-     }
-    body 
-    {
-      font-family: Arial, sans-serif;
-       background-color: #f2f2f2;
-    }
-    #container
-   {
-        width: 500px;
-        margin: 50px auto;
-        padding: 25px;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 0 10px gray;
-    }
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    h2 
-    {
-        text-align: center;
-        margin-bottom: 25px;
-    }
-    .row 
-    {
-        margin-bottom: 15px;
-    }
+        body {
+            font-family: Arial, sans-serif;
+        }
 
-    .form-group 
-    {
-        display: flex;
-        flex-direction: column;
-    }
+        /* LIGHT THEME */
+        body.light {
+            background-color: #f2f2f2;
+            color: black;
+        }
 
-    label 
-    {
-        margin-bottom: 5px;
-        font-weight: bold;
-    }
+        /* DARK THEME */
+        body.dark {
+            background-color: #222;
+            color: white;
+        }
 
-    input,select,textarea 
-    {
+        #container {
+            width: 500px;
+            margin: 50px auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        /* DARK MODE CONTAINER */
+        body.dark #container {
+            background-color: #333;
+            color: white;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .theme-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .theme-buttons a {
+            padding: 8px 12px;
+            text-decoration: none;
+            border: 1px solid #333;
+            border-radius: 5px;
+            color: black;
+        }
+
+        body.dark .theme-buttons a {
+            color: white;
+            border-color: white;
+        }
+
+        .theme-buttons a:hover {
+            background-color: #444;
+            color: white;
+        }
+
+        .row {
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 14px;
-    }
+        }
 
-    textarea 
-    {
-        resize: vertical;
-    }
+        /* DARK MODE INPUTS */
+        body.dark input,
+        body.dark select,
+        body.dark textarea {
+            background-color: #444;
+            color: white;
+            border: 1px solid #777;
+        }
 
-    .button 
-    {
-        display: flex;
-        gap: 10px;
-        margin-top: 20px;
-    }
+        textarea {
+            resize: vertical;
+        }
 
-    button 
-    {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
+        .button {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
 
-    .add-btn 
-    {
-        background-color: green;
-        color: white;
-    }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-    .reset-btn
-    {
-        background-color: red;
-        color: white;
-    }
+        .add-btn {
+            background-color: green;
+            color: white;
+        }
 
-    button:hover 
-    {
-        opacity: 0.8;
-    }
- </style>
+        .reset-btn {
+            background-color: red;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+</style>
 </head>
-<body>
-  <div id="container">
-    <h2>Add employee</h2>
-    
+<body class="{{ theme }}">
+    <div id="container">
+       <h2>Add employee</h2>
+        <nav>
+            <div class="theme-buttons">
+                <a href="/set-theme/light">Light</a>
+                <a href="/set-theme/dark">Dark</a>
+            </div>
+        </nav>
+        
     <form action="/add-employee" method="POST">
         <div class="row">
         <div class="form-group">
@@ -104,17 +153,19 @@
        <input type="text" name="name" id="name" 
         placeholder="enter employeename" >
         </div>
+        </div>
         <div class="row">
         <div class="form-group">
         <label for="email">Email:</label>
         <input type="email"name="email" id="email"
          placeholder="enter email" >
         </div>
+        </div>
         <div class="row">
         <div class="form-group">
         <label for="phone">Phonenumber:</label>
        <input type="tel" name="phone" id="phone" placeholder="enter Phonenumber" >
-        
+        </div>
         </div>
         <div class="row">
         <div class="form-group">
@@ -128,31 +179,34 @@
         <option value="manager">Manager</option>
        </select>
        </div>
+       </div>
        <div class="row">
        <div class="form-group">
        <label for="salary">Salary:</label>
        <input type="number" name="salary" id="salary"
         placeholder="enter salary" >
-        
+        </div>
         </div>
         <div class="row">
        <div class="form-group">
        <label for="joiningdate">Joiningdate:</label>
        <input type="date" name="joiningdate" id="joiningdate"
         placeholder="enter joiningdate" >
-       
+       </div>
        </div>
        <div class="row">
        <div class="form-group">
        <label for="address">Address:</label>
        <textarea name="address" id="address" rows="4"
        placeholder="enter address" ></textarea>
-       
+       </div>
        </div>
        <div class="button">
        <button type="submit" class="add-btn"> Addemployee</button>
        <button type="reset" class="reset-btn">Reset</button>
        </div>
+      
     </form>
+    </div>
 </body>
 </html>

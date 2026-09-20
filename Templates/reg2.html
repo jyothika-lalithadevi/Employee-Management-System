@@ -40,7 +40,7 @@
         }
 
         input[type="text"],
-        input[type="number"] {
+        input[type="password"] {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
@@ -49,7 +49,7 @@
         }
 
         input[type="text"]:focus,
-        input[type="number"]:focus {
+        input[type="password"]:focus {
             border-color: #00a6c7;
             outline: none;
         }
@@ -87,8 +87,10 @@
 <body>
 
     <form id="registrationform" action="/register" method="post">
-
-        <h2>Registration Form</h2>
+        {% if error %}
+         <p style="color:red; margin-bottom:15px;">{{ error }}</p>
+        {% endif %}
+       <h2>Registration Form</h2>
 
         <label>FullName:</label>
         <input type="text" name="fullname" id="fullname" required>
