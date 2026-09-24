@@ -5,109 +5,314 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+body {
+    font-family: Arial, sans-serif;
+    
+}
 
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        padding: 40px;
-    }
+/* ================= LIGHT THEME ================= */
 
-    h1 {
-        text-align: center;
-        color: #222;
-        margin-bottom: 30px;
-    }
+body.light {
+    background-color: #f4f4f4;
+    color: black;
+}
 
-    .search-box {
-        width: 500px;
-        margin: auto;
-        background-color: white;
-        padding: 25px;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    }
+body.light .search-box {
+    background-color: #ffffff;
+    color: #1e293b;
+}
 
-    label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 10px;
-        color: #333;
-    }
+body.light .result {
+    background-color: #ffffff;
+    color: #1e293b;
+}
 
-    input[type="text"] {
-        width: 70%;
-        padding: 11px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        outline: none;
-    }
+body.light input {
+    background-color: #ffffff;
+    color: #1e293b;
+    border: 1px solid #94a3b8;
+}
 
-    input[type="text"]:focus {
-        border-color: #00a6c7;
-    }
+body.light input::placeholder {
+    color: #64748b;
+}
 
-    button {
-        padding: 11px 20px;
-        margin-left: 5px;
-        border: none;
-        border-radius: 5px;
-        background-color: #00a6c7;
-        color: white;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background-color: #008ba3;
-    }
-
-    .result {
-        width: 90%;
-        margin: 40px auto;
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    th,
-    td {
-        padding: 12px;
-        border: 1px solid #ddd;
-        text-align: center;
-    }
-
-    th {
-        background-color: #00a6c7;
-        color: white;
-    }
-
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-
-    .no-result {
-        text-align: center;
-        margin-top: 30px;
-        color: red;
-        font-size: 18px;
-    }
+body.light td {
+    border-bottom: 1px solid #cbd5e1;
+}
 
 
+/* ================= DARK THEME ================= */
+
+body.dark {
+    background-color: #222;
+    color: white;
+}
+
+body.dark .search-box {
+    background-color: #334155;
+    color: #f8fafc;
+}
+
+body.dark .result {
+    background-color: #334155;
+    color: #f8fafc;
+}
+
+body.dark input {
+    background-color: #475569;
+    color: white;
+    border: 1px solid #64748b;
+}
+
+body.dark input::placeholder {
+    color: #cbd5e1;
+}
+
+body.dark td {
+    border-bottom: 1px solid #64748b;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background-color: #222;
+    padding: 15px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+/* ================= NAV LINKS ================= */
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin-left: auto;
+}
+      
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    padding: 9px 13px;
+    border-radius: 5px;
+    font-size: 16px;
+     transition: 0.3s;
+
+}
+
+.nav-links li a:visited {
+    color: white;
+}
+
+.nav-links li a:hover {
+    background-color: #008ba3;
+    color: white;
+}
+
+/* Search current page */
+
+.nav-links li a.active {
+    background-color: #00a6c7;
+    color: white;
+}
+
+
+/* ================= THEME BUTTONS ================= */
+
+.theme-buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: 30px;
+
+}
+
+.theme-buttons a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+     border: 1px solid #00a6c7;
+
+    font-size: 16px;
+}
+
+.theme-buttons a:hover {
+    background-color: #00aec7;
+}
+
+
+/* ================= HEADING ================= */
+
+h1 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+
+
+/* ================= SEARCH BOX ================= */
+
+.search-box {
+    width: 550px;
+    max-width: 90%;
+
+    margin: 0 auto;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+}
+
+.search-box form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-box label {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.search-box input {
+    flex: 1;
+
+    padding: 11px;
+
+    border-radius: 5px;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+.search-box button {
+    background-color: #00a6c7;
+
+    color: white;
+
+    border: none;
+
+    padding: 11px 18px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.search-box button:hover {
+    background-color: #008ba3;
+}
+
+
+/* ================= RESULT TABLE ================= */
+
+.result {
+    width: 95%;
+
+    margin: 30px auto;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    overflow-x: auto;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    text-align: center;
+}
+
+th {
+    background-color: #00a6c7;
+
+    color: white;
+
+    padding: 12px;
+}
+
+td {
+    padding: 11px;
+}
+
+tr:hover {
+    background-color: rgba(0, 166, 199, 0.12);
+}
+
+
+/* ================= NO RESULT ================= */
+
+.no-result {
+    width: 500px;
+    max-width: 90%;
+
+    margin: 25px auto;
+
+    padding: 15px;
+
+    text-align: center;
+
+    border-radius: 7px;
+
+    background-color: #00a6c7;
+
+    color: white;
+}
+    
     </style>
 </head>
-<body>
+<body class="{{theme}}"> 
+    <nav class="navbar">
+       <div class="logo">
+            Employee Management System
+       </div>
+       <div class="theme-buttons">
+                <a href="/set-theme/light">☀️Light</a>
+                <a href="/set-theme/dark">🌙Dark</a>
+        </div>
+           
+        <ul class="nav-links">
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/employees">Employees</a>
+            </li>
+            <li>
+                <a href="/add-employee">Add Employee</a>
+            </li>
+            <li>
+                <a href="/search">Search</a>
+            </li>
+        </ul>
+    </nav>
+      
     <h1>Search Employee</h1>
     <div class="search-box">
        <form action="/search" method="post" >
@@ -134,13 +339,15 @@
             {% for employee in employees %}
             <tr>
                 <td>{{employee[0]}}</td>
-                <td>{{employee[1]}}</td>
+                
                 <td>{{employee[2]}}</td>
                 <td>{{employee[3]}}</td>
                 <td>{{employee[4]}}</td>
                 <td>{{employee[5]}}</td>
                 <td>{{employee[6]}}</td>
                 <td>{{employee[7]}}</td>
+                 <td>{{employee[8]}}</td>
+
                 
             </tr>
             {% endfor %}

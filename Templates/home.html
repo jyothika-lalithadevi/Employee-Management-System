@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 <style>
-
-* {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -14,39 +13,161 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #222;
-    transition: 0.3s;
+   
 }
 
-/* Navigation */
-nav {
-    width: 100%;
+
+/* =========================
+   LIGHT THEME
+   ========================= */
+
+body.light {
+    background-color: #f4f4f4;
+    color: black;
+}
+
+body.light .hero {
+    background: linear-gradient(135deg, #dff6fa, #c9eaf0);
+}
+
+body.light .hero h1 {
+    color: #222;
+}
+
+body.light .hero h1 span {
+    color: #008fa8;
+}
+
+body.light .hero p {
+    color: #555;
+}
+
+body.light .about {
+    background-color: #f5fbfc;
+}
+
+body.light .about h2 {
+    color: #222;
+}
+
+body.light .about p {
+    color: #555;
+}
+
+
+/* =========================
+   DARK THEME
+   ========================= */
+
+body.dark {
+    background-color: #222;
+    color: white;
+}
+
+body.dark .hero {
+    background: linear-gradient(135deg, #181c20, #29343b);
+}
+
+body.dark .hero h1 {
+    color: white;
+}
+
+body.dark .hero h1 span {
+    color: #00c2df;
+}
+
+body.dark .hero p {
+    color: #c9c9c9;
+}
+
+body.dark .about {
+    background-color: #20262b;
+}
+
+body.dark .about h2 {
+    color: white;
+}
+
+body.dark .about p {
+    color: #c9c9c9;
+}
+
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+.navbar {
+    
     padding: 15px 30px;
-    background-color: transparent;
+    background-color: #222;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
 }
 
-.theme-buttons {
-    display: flex;
-    gap: 10px;
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    white-space: nowrap;
 }
 
-.theme-buttons a {
-    text-decoration: none;
-    padding: 9px 18px;
-    border-radius: 5px;
-    background-color: #00a6c7;
+
+/* =========================
+   THEME BUTTONS
+   ========================= */
+
+.theme-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 30px;
+}
+
+.theme-buttons a,
+.theme-buttons a:visited {
+    
     color: white;
-    font-size: 15px;
-    transition: 0.3s;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #00a6c7;
+
+    font-size: 16px;
 }
 
 .theme-buttons a:hover {
-    background-color: #008ba3;
+    background-color: #00a6c7;
+    color: white;
 }
+
+
+/* =========================
+   NAVIGATION LINKS
+   ========================= */
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin-left: auto;
+}
+
+.nav-links li a,
+.nav-links li a:visited {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.nav-links li a:hover {
+   
+      background-color: #00a6c7;
+}
+
+
 
 
 /* =========================
@@ -60,8 +181,6 @@ nav {
     align-items: center;
     text-align: center;
     padding: 50px 20px;
-    background: linear-gradient(135deg, #e0f7fa, #ffffff);
-    transition: 0.3s;
 }
 
 .hero-content {
@@ -71,24 +190,23 @@ nav {
 .hero h1 {
     font-size: 42px;
     margin-bottom: 20px;
-    color: #222;
 }
 
 .hero h1 span {
     display: block;
-    color: #00a6c7;
     margin-top: 10px;
 }
 
 .hero p {
     font-size: 18px;
     line-height: 1.6;
-    color: #555;
     margin-bottom: 30px;
 }
 
 
-/* Buttons */
+/* =========================
+   MAIN BUTTONS
+   ========================= */
 
 .btn {
     display: inline-block;
@@ -96,8 +214,7 @@ nav {
     padding: 12px 25px;
     margin: 5px;
     border-radius: 6px;
-    font-size: 16px;
-    transition: 0.3s;
+    font-size: 15px;
 }
 
 .view-btn {
@@ -105,8 +222,13 @@ nav {
     color: white;
 }
 
+.view-btn:visited {
+    color: white;
+}
+
 .view-btn:hover {
     background-color: #008ba3;
+    color: white;
 }
 
 .add-btn {
@@ -114,8 +236,31 @@ nav {
     color: white;
 }
 
+.add-btn:visited {
+    color: white;
+}
+
 .add-btn:hover {
     background-color: #444;
+    color: white;
+}
+
+
+/* =========================
+   DARK ADD BUTTON
+   ========================= */
+
+body.dark .add-btn {
+    background-color: #00a6c7;
+    color: white;
+}
+
+body.dark .add-btn:visited {
+    color: white;
+}
+
+body.dark .add-btn:hover {
+    background-color: #008ba3;
 }
 
 
@@ -126,14 +271,11 @@ nav {
 .about {
     text-align: center;
     padding: 60px 20px;
-    background-color: white;
-    transition: 0.3s;
 }
 
 .about h2 {
     font-size: 30px;
     margin-bottom: 20px;
-    color: #222;
 }
 
 .about p {
@@ -141,110 +283,34 @@ nav {
     margin: auto;
     font-size: 17px;
     line-height: 1.7;
-    color: #555;
-}
-
-
-/* =========================
-   DARK THEME
-   ========================= */
-
-body.dark {
-    background-color: #121212;
-    color: white;
-}
-
-body.dark nav {
-    background-color: transparent;
-}
-
-body.dark .hero {
-    background: linear-gradient(135deg, #121212, #2b2b2b);
-}
-
-body.dark .hero h1 {
-    color: white;
-}
-
-body.dark .hero h1 span {
-    color: #00bcd4;
-}
-
-body.dark .hero p {
-    color: #cccccc;
-}
-
-body.dark .about {
-    background-color: #1e1e1e;
-}
-
-body.dark .about h2 {
-    color: white;
-}
-
-body.dark .about p {
-    color: #cccccc;
-}
-
-body.dark .add-btn {
-    background-color: #00a6c7;
-    color: white;
-}
-
-body.dark .add-btn:hover {
-    background-color: #008ba3;
-}
-
-
-/* =========================
-   LIGHT THEME
-   ========================= */
-
-body.light {
-    background-color: #f5f5f5;
-    color: #222;
-}
-
-body.light nav {
-    background-color:transparent;
-}
-
-body.light .hero {
-    background: linear-gradient(135deg, #e0f7fa, #ffffff);
-}
-
-body.light .hero h1 {
-    color: #222;
-}
-
-body.light .hero h1 span {
-    color: #00a6c7;
-}
-
-body.light .hero p {
-    color: #555;
-}
-
-body.light .about {
-    background-color: white;
-}
-
-body.light .about h2 {
-    color: #222;
-}
-
-body.light .about p {
-    color: #555;
 }
 
 </style>
 </head>
 <body class="{{theme}}">
-    <nav>
+   <nav class="navbar">
+       <div class="logo">
+           Employee Management System
+       </div>
+   
       <div class="theme-buttons">
-        <a href="/set-theme/light">Light</a>
-        <a href="/set-theme/dark">Dark</a>
+        <a href="/set-theme/light">☀️Light</a>
+        <a href="/set-theme/dark">🌙Dark</a>
       </div>
+       <ul class="nav-links">
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/employees">Employees</a>
+            </li>
+            <li>
+                <a href="/add-employee">Addemployee</a>
+            </li>
+            <li>
+                <a href="/search">Search</a>
+            </li>
+        </ul>
     </nav>
     <!--Hero Section-->
     <section class="hero">

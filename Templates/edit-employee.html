@@ -5,216 +5,254 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
    <style>
-     * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            min-height: 100vh;
-            padding: 40px 0;
-            transition: 0.3s;
-        }
+body {
+    font-family: Arial, sans-serif;
+   
+}
 
-        /* ================= LIGHT THEME ================= */
 
-        body.light {
-            background-color: #f2f2f2;
-            color: black;
-        }
+/* ================= LIGHT THEME ================= */
 
-        /* ================= DARK THEME ================= */
+body.light {
+    background-color: #f4f4f4;
+    color: black;
+}
 
-        body.dark {
-            background-color: #222;
-            color: white;
-        }
+body.light #container {
+    background-color: #eff6ff;
+    color: #1e293b;
+}
 
-        /* ================= MAIN CONTAINER ================= */
+body.light h1 {
+    color: #1e293b;
+}
 
-        #container {
-            width: 500px;
-            margin: auto;
-            padding: 30px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
+body.light label {
+    color: #334155;
+}
 
-        /* DARK MODE CONTAINER */
+body.light input,
+body.light textarea {
+    background-color: #ffffff;
+    color: #1e293b;
+    border-color: #94a3b8;
+}
 
-        body.dark #container {
-            background-color: #333;
-            color: white;
-        }
 
-        /* ================= HEADING ================= */
+/* ================= DARK THEME ================= */
 
-        h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 26px;
-        }
+body.dark {
+    background-color: #222;
+    color: white;
+}
 
-        /* ================= THEME BUTTONS ================= */
+body.dark #container {
+    background-color: #334155;
+    color: #f8fafc;
+}
 
-        .theme-buttons {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
+body.dark h1 {
+    color: #f8fafc;
+}
 
-        .theme-buttons a {
-            padding: 8px 14px;
-            text-decoration: none;
-            border: 1px solid #333;
-            border-radius: 5px;
-            color: black;
-            font-size: 14px;
-        }
+body.dark label {
+    color: #e2e8f0;
+}
 
-        body.dark .theme-buttons a {
-            color: white;
-            border-color: white;
-        }
+body.dark input,
+body.dark textarea {
+    background-color: #475569;
+    color: #ffffff;
+    border-color: #64748b;
+}
 
-        .theme-buttons a:hover {
-            background-color: #444;
-            color: white;
-        }
+body.dark input::placeholder,
+body.dark textarea::placeholder {
+    color: #cbd5e1;
+}
 
-        /* ================= FORM ROW ================= */
 
-        .row {
-            margin-bottom: 18px;
-        }
+/* ================= NAVBAR ================= */
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
+.navbar {
+    width: 100%;
+    background-color: #1f2937;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+     border-radius: 8px;
+    margin-bottom: 40px;
+}
 
-        /* ================= LABEL ================= */
 
-        label {
-            margin-bottom: 7px;
-            font-weight: bold;
-            font-size: 15px;
-        }
 
-        /* ================= INPUTS ================= */
+.logo {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
 
-        input,
-        select,
-        textarea {
-            width: 100%;
-            padding: 11px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 14px;
-            outline: none;
-        }
+.theme-buttons {
+    display: flex;
+    gap: 6px;
+    margin-left: auto;
+    margin-right: 20px;
+}
 
-        input:focus,
-        select:focus,
-        textarea:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
-        }
+.theme-buttons a {
+    text-decoration: none;
+    color: white;
+    padding: 7px 12px;
+    border: 1px solid #00a6c7;
+    border-radius: 5px;
+    font-size: 13px;
+}
 
-        /* ================= DARK MODE INPUTS ================= */
+.theme-buttons a:hover {
+    background-color: #00a6c7;
+}
 
-        body.dark input,
-        body.dark select,
-        body.dark textarea {
-            background-color: #444;
-            color: white;
-            border: 1px solid #777;
-        }
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+}
 
-        body.dark input:focus,
-        body.dark select:focus,
-        body.dark textarea:focus {
-            border-color: #00bcd4;
-        }
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    padding: 9px 13px;
+    border-radius: 5px;
+    font-size: 14px;
+}
 
-        /* ================= TEXTAREA ================= */
+.nav-links li a:hover {
+    background-color: #00a6c7;
+}
 
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
 
-        /* ================= BUTTON AREA ================= */
+/* ================= EDIT FORM ================= */
 
-        .button {
-            display: flex;
-            gap: 12px;
-            margin-top: 25px;
-        }
+#container {
+    width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    transition: 0.3s;
+}
 
-        /* ================= BUTTON ================= */
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
 
-        button {
-            flex: 1;
-            padding: 11px 20px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 15px;
-            font-weight: bold;
-            transition: 0.2s;
-        }
 
-        /* UPDATE BUTTON */
+/* ================= FORM ================= */
 
-        .update-btn {
-            background-color: #007bff;
-            color: white;
-        }
+form > div {
+    margin-bottom: 16px;
+}
 
-        /* RESET BUTTON */
+label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
 
-        .reset-btn {
-            background-color: red;
-            color: white;
-        }
+input,
+textarea {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    font-family: Arial, sans-serif;
+}
 
-        /* BUTTON HOVER */
+input:focus,
+textarea:focus {
+    border-color: #00a6c7;
+}
 
-        button:hover {
-            opacity: 0.85;
-            transform: translateY(-1px);
-        }
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
 
-        /* ================= MOBILE ================= */
 
-        @media (max-width: 600px) {
+/* ================= BUTTONS ================= */
 
-            #container {
-                width: 90%;
-                padding: 20px;
-            }
+.button {
+    display: flex;
+    gap: 10px;
+    margin-top: 22px;
+}
 
-            .button {
-                flex-direction: column;
-            }
-        }
+button {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
 
+.update-btn {
+    background-color: #00a6c7;
+    color: white;
+}
+
+.reset-btn {
+    background-color: #555;
+    color: white;
+}
+
+.update-btn:hover {
+    background-color: #008ba3;
+}
+
+.reset-btn:hover {
+    background-color: #333;
+}
 
     </style>
 </head>
 <body class="{{theme}}">
-    <div id="container">
+    <nav class="navbar">
+        <div class="logo">
+           Employee Management System
+        </div>
+        <div class="theme-buttons">
+            <a href="/set-theme/light">☀️Light</a>
+            <a href="/set-theme/dark">🌙Dark</a>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/employees">Employees</a>
+            </li>
+            <li>
+                <a href="/add-employee">Addemployee</a>
+            </li>
+            <li>
+                <a href="/search">Search</a>
+            </li>
+        </ul>
+    </nav>
+     <div id="container">
          <h1>Edit Employee</h1>
-       <nav>
-            <div class="theme-buttons">
-               <a href="/set-theme/light">Light</a>
-                <a href="/set-theme/dark">dark</a>
-            </div>
-       </nav>
+      
    
     <form action="/edit-employee/{{ employee['id'] }}" method="POST">
        <div>

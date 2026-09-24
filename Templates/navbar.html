@@ -7,110 +7,129 @@
   <style>
 
 
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        body {
+            font-family: Arial, sans-serif;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-}
+        /* LIGHT THEME */
+        body.light {
+            background-color: #f4f4f4;
+            color: black;
+        }
 
-/* LIGHT THEME */
-body.light {
-    background-color: #f4f4f4;
-    color: black;
-}
+        body.light .content p {
+            color: #555;
+        }
 
-body.light .content p {
-    color: #555;
-}
+        /* DARK THEME */
+        body.dark {
+            background-color: #222;
+            color: white;
+        }
 
-/* DARK THEME */
-body.dark {
-    background-color: #222;
-    color: white;
-}
+        body.dark .content p {
+            color: #ddd;
+        }
 
-body.dark .content p {
-    color: #ddd;
-}
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #222;
+        }
 
-/* NAVBAR */
-.navbar {
-    display: flex;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: #222;
-}
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
 
-.logo {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-}
+        /* THEME BUTTONS */
+        .theme-buttons {
+            display: flex;
+            gap: 10px;
+            margin-left: 30px;
+        }
 
-/* THEME BUTTONS */
-.theme-buttons {
-    display: flex;
-    gap: 10px;
-    margin-left: 30px;
-}
+        .theme-buttons a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border: 1px solid #00a6c7;
+            border-radius: 5px;
+        }
 
-.theme-buttons a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 12px;
-    border: 1px solid white;
-    border-radius: 5px;
-}
+        .theme-buttons a:hover {
+            background-color: #00a6c7;
+        }
 
-.theme-buttons a:hover {
-    background-color: #444;
-}
+        /* NAV LINKS */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin-left: auto;
+            gap: 20px;
+        }
 
-/* NAV LINKS */
-.nav-links {
-    display: flex;
-    list-style: none;
-    margin-left: auto;
-    gap: 20px;
-}
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
 
-.nav-links li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 8px 12px;
-}
+        .nav-links li a:hover {
+            background-color: #00a6c7;
+        }
 
-.nav-links li a:hover {
-    background-color: #444;
-    border-radius: 5px;
-}
+        /* REGISTER */
+        .register-btn {
+            background-color: transparent;
+            color: white !important;
+        }
 
-.register-btn {
-    background-color: #00bcd4;
-    border-radius: 5px;
-}
+        .register-btn:hover {
+            background-color: #00a6c7 !important;
+        }
 
-.content {
-    text-align: center;
-    margin-top: 100px;
-}
+        /* LOGOUT */
+        .logout-btn {
+            background-color: #e53935 !important;
+            color: white !important;
+        }
 
-.content h1 {
-    font-size: 32px;
-    margin-bottom: 15px;
-}
+        .logout-btn:hover {
+            background-color: #c62828 !important;
+        }
 
-.content p {
-    font-size: 18px;
-}
+        /* CONTENT */
+        .content {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .content h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .content p {
+            font-size: 18px;
+        }
+   
 
 
+
+  
 </style>
 </head>
 <body class="{{theme}}">
@@ -119,21 +138,27 @@ body.dark .content p {
       Employee Management System
     </div>
     <div class="theme-buttons">
-       <a href="/set-theme/light">Light</a>
-       <a href="/set-theme/dark">Dark</a>
+       <a href="/set-theme/light">☀️Light</a>
+       <a href="/set-theme/dark">🌙Dark</a>
     </div>
     <ul class="nav-links">
       <li><a href="/home">Home</a></li>
       <li><a href="/employees">Employees</a></li>
       <li><a href="/add-employee">AddEmployee</a></li>
+      <li><a href="/search">Search</a></li>
      <li><a href="/register" class="register-btn">Register</a></li>
-      <li><a href="/logout">Logout</a></li>
+      <li><a href="/logout" class="logout-btn">Logout</a></li>
     </ul>
 
   </nav>
+  
       <div class="content">
-          <h1>Welcome to Employee Management system</h1>
-          <p>manage your employee easily</p>
+          {% if fullname %}
+          <h1>Welcome, {{fullname}}</h1>
+          {% else %}
+          <h1>Welcome to Employee Management System</h1>
+          {% endif %}
+          <p>Manage Your Employee Easily</p>
       </div>
 </body>
 </html>

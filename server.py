@@ -225,29 +225,21 @@ def add_employee():
       
 @app.route("/employees", methods=["GET", "POST"])
 def employees():
-
-    if not login_required():
+      if not login_required():
         return redirect("/login")
-    theme = request.cookies.get("theme", "light")
-    search_name = ""
 
-    connection = get_database_connection()
-    cursor = connection.cursor()
 
-    if request.method == "POST":
-      search_name = request.form.get("search_name", "").strip()
-      cursor.execute( """SELECT * FROM employee WHERE user_id = ? AND name LIKE ?
-       ORDER BY id ASC""",(session["user_id"], "%" + search_name + "%"))
-    else:
-     cursor.execute("SELECT * FROM employee WHERE user_id = ? ORDER BY id ASC",
-      (session["user_id"],))
-    employees = cursor.fetchall()
-    connection.close()
-    return render_template(
-      "employees.html",
-      employees=employees,
-      search_name=search_name,
-      theme=theme)
+      connection = get_database_connection()
+      cursor = connection.cursor()
+      cursor.execute("SELECT * FROM employee WHERE user_id = ? ORDER BY id ASC",
+               (session["user_id"],))
+      employees = cursor.fetchall()
+      connection.close()
+      theme=request.cookies.get("theme","light")
+      return render_template(
+               "employees.html",
+               employees=employees,
+               theme=theme)
 
 
 #=========== EDIT EMPLOYEE PAGE ===========
@@ -332,6 +324,42 @@ def delete_employee(id):
    return redirect("/employees")
 
 
+# ============ SEARCH EMPLOYEE ============
+
+@app.route("/search", methods=["GET", "POST"])
+def search_employee():
+
+    if not login_required():
+        return redirect("/login")
+
+    search_name = ""
+
+    if request.method == "POST":
+        search_name = request.form.get("search_name", "").strip()
+
+    connection = get_database_connection()
+    cursor = connection.cursor()
+
+    cursor.execute(
+        """SELECT * FROM employee
+           WHERE user_id = ? AND name LIKE ?
+           ORDER BY id ASC""",
+        (session["user_id"], "%" + search_name + "%")
+    )
+
+    employees = cursor.fetchall()
+    connection.close()
+
+    theme = request.cookies.get("theme", "light")
+
+    return render_template(
+        "search.html",
+        employees=employees,
+        search_name=search_name,
+        theme=theme
+    )
+
+
 #=========== HOME =========
 
 
@@ -346,9 +374,11 @@ def home():
         theme=theme)
 
 
+
+
 #========= MAIN FUNCTION ==========
 
 
 if __name__=="__main__":
     create_database()
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)

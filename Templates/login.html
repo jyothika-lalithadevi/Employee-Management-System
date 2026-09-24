@@ -5,271 +5,194 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-     
-* {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* =========================
-           BODY
-           ========================= */
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            color: #222;
-
-            min-height: 100vh;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            transition: 0.3s;
-        }
-
-
-        /* =========================
-           LOGIN FORM
-           ========================= */
-
-        #loginform {
-            width: 400px;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-
-            transition: 0.3s;
-        }
-
-
-        /* =========================
-           THEME BUTTONS
-           ========================= */
-
-        nav {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 20px;
-        }
-
-        .theme-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .theme-buttons a {
-            display: inline-block;
-            text-decoration: none;
-            padding: 8px 15px;
-
-            border: none;
-            border-radius: 5px;
-
-            background-color: #00a6c7;
-            color: white;
-
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .theme-buttons a:hover {
-            background-color: #008ba3;
-        }
-
-
-        /* =========================
-           HEADING
-           ========================= */
-
-        h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            color: #222;
-        }
-
-
-        /* =========================
-           LABELS
-           ========================= */
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-
-            font-weight: bold;
-            color: #333;
-        }
-
-
-        /* =========================
-           INPUTS
-           ========================= */
-
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-
-            padding: 10px;
-
-            border: 1px solid #ccc;
-            border-radius: 5px;
-
-            margin-bottom: 15px;
-
-            background-color: white;
-            color: #222;
-        }
-
-        input[type="text"]:focus,
-        input[type="password"]:focus {
-            border-color: #00a6c7;
-            outline: none;
-        }
-
-
-        /* =========================
-           LOGIN & RESET BUTTONS
-           ========================= */
-
-        input[type="submit"],
-        input[type="reset"] {
-            padding: 10px 22px;
-
-            border: none;
-            border-radius: 5px;
-
-            cursor: pointer;
-            font-size: 15px;
-        }
-
-        input[type="submit"] {
-            background-color: #00a6c7;
-            color: white;
-        }
-
-        input[type="reset"] {
-            background-color: #555;
-            color: white;
-
-            margin-left: 10px;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #008ba3;
-        }
-
-        input[type="reset"]:hover {
-            background-color: #333;
-        }
-
-
-        /* =========================
-           REGISTER BUTTON
-           ========================= */
-
-        #loginform > a {
-            display: inline-block;
-
-            padding: 10px 22px;
-            margin-left: 10px;
-
-            border: none;
-            border-radius: 5px;
-
-            background-color: #00a6c7;
-            color: white;
-
-            text-decoration: none;
-            font-size: 15px;
-
-            cursor: pointer;
-            vertical-align: middle;
-        }
-
-        #loginform > a:hover {
-            background-color: #008ba3;
-        }
-
-
-        /* =========================
-           LIGHT THEME
-           ========================= */
-
-        body.light {
-            background-color: #f2f2f2;
-            color: #222;
-        }
-
-        body.light #loginform {
-            background-color: white;
-        }
-
-        body.light h2 {
-            color: #222;
-        }
-
-        body.light label {
-            color: #333;
-        }
-
-        body.light input[type="text"],
-        body.light input[type="password"] {
-            background-color: white;
-            color: #222;
-            border-color: #ccc;
-        }
-
-
-        /* =========================
-           DARK THEME
-           ========================= */
-
-        body.dark {
-            background-color: #121212;
-            color: white;
-        }
-
-        body.dark #loginform {
-            background-color: #1e1e1e;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        body.dark h2 {
-            color: white;
-        }
-
-        body.dark label {
-            color: #eeeeee;
-        }
-
-        body.dark input[type="text"],
-        body.dark input[type="password"] {
-            background-color: #2b2b2b;
-            color: white;
-            border-color: #555;
-        }
-
-        body.dark #loginform > a {
-            background-color: #00a6c7;
-            color: white;
-        }
-
-    
-    </style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+    transition: 0.3s;
+}
+
+/* Login Form */
+
+#loginform {
+    width: 400px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Theme Buttons */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.theme-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.theme-buttons a {
+    text-decoration: none;
+    color: white;
+    background-color: #00a6c7;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.theme-buttons a:hover {
+    background-color: #008ba3;
+}
+/* Heading */
+
+h2 {
+    text-align: center;
+    color: #222;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+/* Error */
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Labels */
+
+label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Inputs */
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 11px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #00a6c7;
+}
+
+/* Login Button */
+
+input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 11px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00a6c7;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #008ba3;
+}
+
+/* Register */
+
+.register-link {
+    text-align: center;
+    margin-top: 18px;
+    color: #555;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #00a6c7;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-link a:hover {
+    color: #008ba3;
+}
+
+/* Light Theme */
+
+body.light {
+    background-color: #f2f2f2;
+}
+
+body.light #loginform {
+    background-color: white;
+}
+
+/* Dark Theme */
+
+body.dark {
+    background-color: #121212;
+}
+
+body.dark #loginform {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+body.dark h2 {
+    color: white;
+}
+
+body.dark label {
+    color: #eeeeee;
+}
+
+body.dark input[type="text"],
+body.dark input[type="password"] {
+    background-color: #2b2b2b;
+    color: white;
+    border-color: #555;
+}
+
+body.dark .register-link {
+    color: #cccccc;
+}   
+
+
+</style>
 </head>
 
 <body class="{{theme}}">
+   
 
     <form id="loginform" action="/login" method="post">
     <nav>
       <div class="theme-buttons">
-         <a href="/set-theme/light">Light</a>
-         <a href="/set-theme/dark">Dark</a>
+         <a href="/set-theme/light">☀️Light</a>
+         <a href="/set-theme/dark">🌙Dark</a>
       </div>
     </nav>
         <h2>Login Form</h2>
@@ -284,8 +207,11 @@
         <input type="password" name="password" id="password" required>
 
         <input type="submit" value="Login">
-        <input type="reset" value="Reset">
+        <div class="register-link">
+
+            Don't have an account?
         <a href="/register">Register</a>
+        </div>
     </form>
     
 
